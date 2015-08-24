@@ -1,0 +1,36 @@
+{
+  "manifest_version": 2,
+  "name": "Badger Chrome",
+  "version": "1.3.5",
+  "description": "Provides a way to view the 'Rate My Professor' statistics of professors when in the
+  myUW student center.
+  ",
+  "icons": {
+    "16": "icon16.png",
+    "48": "icon48.png",
+    "128": "icon128.png"
+  },
+  "page_action": {
+    "default_icon": "icon.png",
+    "default_title": "Badger Chrome",
+    "default_popup": "popup.html"
+  },
+  "permissions": [
+    "tabs",
+    "https://portal.isis.wisc.edu/*",
+    "http://portal.isis.wisc.edu/*",
+    "*://*.portal.isis.wisc.edu/*",
+    "<all_urls>"
+  ],
+  "background": {
+    "scripts": ["background.js"],
+    "persistant": false
+  },
+  "content_scripts": [{
+    "matches": ["*://*.portal.isis.wisc.edu/*"],
+    "js": ["content.js"],
+    "run_at": "document_end",
+    "all_frames": true
+  }],
+  "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'"
+}
