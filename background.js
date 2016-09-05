@@ -206,6 +206,7 @@ function gatherRatings(text) {
     returnShipment[4] = avg;
   }
 
+/*
   if (ratings) {
     for (var i = 0; i < ratings.length; i++) {
       content = ratings[i].innerHTML;
@@ -218,7 +219,19 @@ function gatherRatings(text) {
         break;
       }
     }
+  }*/
+
+  criteria = getRatings.getElementsByClassName("rating-breakdown")[0];
+  if (criteria){
+    criteriaRatings = criteria.getElementsByClassName("grade");
+    for (var i = 1; i < criteriaRatings.length-1; i++){
+      //console.log(criteriaRatings[i]);
+      returnShipment[i] = criteriaRatings[i].innerText;
+    }
+  }else{
+    console.log("Could not retrieve ratings.");
   }
+
   if (numRatings && numRatings.length > 0) {
     for (var i = 0; i < numRatings.length; i++) {
       content = numRatings[i].innerHTML;

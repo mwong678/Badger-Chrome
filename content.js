@@ -96,10 +96,10 @@ document.addEventListener('mousemove', function(e) {
                         if (response && response.length > 0 && response != "TBA") {
                           nRatings = "Number of Ratings: " + response[5];
                           oQuality = "Overall Quality: " + response[3] + "/5.0";
-                          aGrade = "Average Grade: " + response[4];
-                          helpfulness = "Helpfulness: " + response[0] + "/5.0";
-                          clarity = "Clarity: " + response[1] + "/5.0";
-                          easiness = "Easiness: " + response[2] + "/5.0";
+                          //aGrade = "Average Grade: " + response[4];
+                          //helpfulness = "Helpfulness: " + response[0] + "/5.0";
+                          clarity = "Would Take Again: " + response[1];
+                          easiness = "Level of Difficulty: " + response[2] + "/5.0";
                           for (var i = 0; i < 6; i++) {
                             var text2 = document.createElement('P');
                             text2.setAttribute('style', 'color:blue');
@@ -114,13 +114,14 @@ document.addEventListener('mousemove', function(e) {
                                 id.insertBefore(text2, n);
                                 break;
                               case 2:
-                                text2.textContent = aGrade;
+                                text2.textContent = clarity;
                                 id.insertBefore(text2, n);
                                 break;
                               case 3:
-                                text2.textContent = helpfulness;
+                                text2.textContent = easiness;
                                 id.insertBefore(text2, n);
                                 break;
+                              /*
                               case 4:
                                 text2.textContent = clarity;
                                 id.insertBefore(text2, n);
@@ -129,6 +130,7 @@ document.addEventListener('mousemove', function(e) {
                                 text2.textContent = easiness;
                                 id.insertBefore(text2, n);
                                 break;
+                                */
                             }
                           }
 
